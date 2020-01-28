@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import { StaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
@@ -15,6 +16,45 @@ const IndexPage = () => (
       <Image />
     </div>
     <Link to="/page-2/">Go to page 2</Link>
+
+    <StaticQuery
+      query = {graphql`
+        {
+          allContentfulArticle {
+            edges {
+              node {
+                id
+                title
+                publishedAt
+                text {
+                  text
+                }
+                banner {
+                  file {
+                    url
+                  }
+                }
+              }
+            }
+          }
+        }
+      `}
+      render = {
+        (
+          {
+            allContentfulArticle: {
+              edges
+            }
+          }
+        ) => (
+          edges.map(
+            ({ node }) => (
+              <Article key = { node.id } content = { node } />
+            )
+          )
+        )
+      }
+    />  
   </Layout>
 )
 
