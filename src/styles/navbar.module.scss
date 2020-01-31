@@ -1,0 +1,62 @@
+// Variables
+
+// Colors
+$usualLinkHoveredColor: limegreen;
+
+// Mixins
+@mixin item-layout {
+    padding: 14px 16px;
+    font-size: 17px;
+    text: {
+        align: center;
+        decoration: none;
+    }
+}
+
+// Navigation Bar
+.navbar {
+    &-link-item {
+        padding: 14px 16px;
+        font-size: 17px;
+        color: white;
+        text: {
+            align: center;
+            decoration: none;
+        }
+        &:hover {
+            color: $usualLinkHoveredColor;
+        }
+    }
+
+    &-title {
+        color: white;
+    }
+
+    &-item-left {
+        grid-area: item-left;
+        justify-self: start;
+    }
+
+    &-item-center {
+        grid-area: item-center;
+        justify-self: center;
+    }
+
+    &-item-right {
+        grid-area: item-right;
+        justify-self: end;
+    }
+
+    &-container {
+        display: grid;
+        height: 100%;
+        background-color: rebeccapurple;
+        grid-template: {
+            columns: 1fr 1fr 1fr;
+            rows: auto;
+            areas: "item-left item-center item-right";
+        }
+    }
+}
+
+[class*="navbar-item"] { align-self: center; }

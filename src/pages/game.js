@@ -11,8 +11,6 @@ import Layout from "../components/layout"
             <img src="https://source.unsplash.com/random/400x200" alt="" />
             <button>Button</button>
         </div>
-        <Link to="/">Go back to the homepage</Link>
-        <Link to="/blog">Go to the blog</Link>
      </Layout>
 )
 

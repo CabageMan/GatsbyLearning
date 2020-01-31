@@ -2,25 +2,25 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import Header from "./header"
-import "./layout.css"
+import styles from "../styles/layout.module.scss";
 
 const Layout = ({ children, title }) => {
   return (
     <>
-      <Header siteTitle={title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Powered by
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+      <div className={styles['content-container']}>
+        <div className={styles['content-header']}>
+          <Header siteTitle={title} />
+        </div>
+        <div className={styles['content-main']}>
+          <main>{children}</main> 
+        </div>
+        <div className={styles['content-footer']}>
+          <footer>
+            © {new Date().getFullYear()}, Powered by
+            {` `}
+            <a href="https://www.gatsbyjs.org">Gatsby</a>
+          </footer>
+        </div>
       </div>
     </>
   )

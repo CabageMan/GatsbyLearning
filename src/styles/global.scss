@@ -1,7 +1,11 @@
 // Variables
+
 $mainBackground: #f1f1f1;
+
+// Mixins
 
 // Styles
 html {
+    min-width: 780px;
     background-color: $mainBackground;
 }
