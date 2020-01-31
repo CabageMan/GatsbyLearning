@@ -36,18 +36,9 @@ const BlogPage = () => (
           }
         }
       `}
-      render = {
-        (
-          {
-            allContentfulArticle: {
-              edges
-            }
-          }
-        ) => (
+      render = {({ allContentfulArticle: { edges } }) => (
           edges.map(
-            ({ node }) => (
-              <Article key = { node.id } content = { node } />
-            )
+            ({ node }) => ( <Article key = { node.id } content = { node } /> )
           )
         )
       }
