@@ -13,7 +13,7 @@ const Header = ({ siteTitle }) => (
     </div>
     <div className={styles['navbar-item-right']}>
       <Link to="/blog" className={styles['navbar-link-item']}>Go to the blog</Link>
-      <Link to="/game" className={styles['navbar-link-item']}>Play Tic Tac Toe</Link>
+      <Link to="/tic-tac-toe" className={styles['navbar-link-item']}>Play Tic Tac Toe</Link>
     </div>
   </header>
 )
