@@ -1,3 +1,11 @@
+// Variables
+$borderColor: #999;
+$squareBackgroundColor: #fff;
+$squareFocusColor: #ddd;
+$columnWidth: 34px;
+$rowHeight: 34px;
+$squareFontSize: 24px;
+
 body {
     font: 14px "Century Gothic", Futura, sans-serif;
     margin: 20px;
@@ -8,9 +16,9 @@ ol, ul {
 }
   
 .board-row:after {
+    display: table;
     clear: both;
     content: "";
-    display: table;
 }
   
 .status {
@@ -18,22 +26,25 @@ ol, ul {
 }
   
 .square {
-    background: #fff;
-    border: 1px solid #999;
     float: left;
-    font-size: 24px;
-    font-weight: bold;
     line-height: 34px;
-    height: 34px;
-    margin-right: -1px;
-    margin-top: -1px;
+    width: $columnWidth;
+    height: $rowHeight;
+    margin: {
+        right: -1px;
+        top: -1px;
+    }
     padding: 0;
+    background: $squareBackgroundColor;
+    border: 1px solid $borderColor;
+    font: {
+        size: $squareFontSize;
+        weight: bold;
+    }
     text-align: center;
-    width: 34px;
-}
-  
-.square:focus {
-    outline: none;
+    &:focus {
+        outline: none;
+    }
 }
   
 .kbd-navigation .square:focus {
@@ -48,3 +59,44 @@ ol, ul {
 .game-info {
     margin-left: 20px;
 }
+
+
+// GRID
+.board {
+    &-square-a { grid-area: square-a; }
+    &-square-b { grid-area: square-b; }
+    &-square-c { grid-area: square-c; }
+    &-square-a { grid-area: square-d; }
+    &-square-b { grid-area: square-e; }
+    &-square-c { grid-area: square-f; }
+    &-square-a { grid-area: square-g; }
+    &-square-b { grid-area: square-h; }
+    &-square-c { grid-area: square-i; }
+
+    &-container {
+        display: grid;
+        grid-gap: 1px 1px;
+        background-color: $borderColor;
+        grid-template: {
+            columns: $columnWidth $columnWidth $columnWidth;
+            rows: $rowHeight $rowHeight $rowHeight;
+            areas: 
+                "square-a square-b square-c"
+                "square-d square-e square-f"
+                "square-g square-h square-i";
+        }
+    }
+}
+
+[class*="board-square"] { 
+    background-color: $squareBackgroundColor;
+    text-align: center;
+    font: {
+        size: $squareFontSize;
+        weight: bold;
+    }
+    &:focus {
+        outline: none;
+        background-color: $squareFocusColor;
+    }
+ }
